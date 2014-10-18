@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kt.UserMapper">
+      
+    <resultMap id="userMap" type="kt.UserVo">
+        <id     property="username"    column="username" />
+        <result property="age"     	   column="age" />
+    </resultMap>
+ 
+    <select id="getUser" resultMap="userMap">
+        SELECT  username,age
+        FROM    user
+        WHERE   username=#{name}
+    </select>
+    
+    
+    <!--  
+    <select id="getUser" resultType="kt.UserVo">
+        SELECT  username,age
+        FROM    user
+        WHERE   username=#{name}
+    </select>
+    -->
+    
+</mapper>
